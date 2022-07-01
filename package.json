@@ -9,13 +9,15 @@
     "jest": "^28.1.2",
     "prettier": "2.7.1",
     "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.1",
     "typescript": "^4.7.4"
   },
   "scripts": {
     "build": "tsc",
     "test": "jest",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "lint": "eslint \"{src}/**/*.ts\" --fix"
+    "lint": "eslint \"{src}/**/*.ts\" --fix",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "moment-timezone": "^0.5.34"
