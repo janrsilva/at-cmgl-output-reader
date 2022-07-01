@@ -1,4 +1,5 @@
 import moment from 'moment-timezone';
+import { TextFormatter } from '../formatter/text-formatter';
 
 interface DataRaw {
   info: string;
@@ -14,6 +15,8 @@ interface Data {
 }
 
 export class ContentTransformer {
+  private formatter: TextFormatter = new TextFormatter();
+
   contentToCmglArray(content: string): string[] {
     const [, ...lines] = content.replace(/(\nOK?)\n?$/, '').split('+CMGL:');
 
@@ -62,13 +65,16 @@ export class ContentTransformer {
   transform(data: DataRaw): Data {
     data.info = data.info.replace(/"/g, '');
     const [seq, status, from, , date, time] = data.info.split(',');
+    const text = this.formatter.isHex(data.text)
+      ? this.formatter.hexToUtf8(data.text)
+      : data.text;
 
     return {
       seq: +seq.replace(/\D/g, ''),
       status,
       from,
       timestamp: this.dateRawToIso(`${date},${time}`),
-      text: data.text,
+      text: this.formatter.removeNoAsciiCaracters(text),
     };
   }
 }

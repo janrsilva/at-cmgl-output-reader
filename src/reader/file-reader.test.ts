@@ -1,4 +1,4 @@
-import { FileReader } from '../reader/file-reader';
+import { FileReader } from './file-reader';
 
 describe('Testing FileReader', () => {
   test('readFile method should be called', async () => {
