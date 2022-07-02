@@ -16,7 +16,18 @@ Essa eh a segunda mensagem
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...
 OK
 ```
+# Usage:
 
+## (with docker <3)
+### Requirements
+- docker
+
+```bash
+docker run janrsilva/parse-sms
+```
+
+
+## (without docker)
 ### Requirements
 - node.js v14.0.0 or higher
 - npm
@@ -50,4 +61,14 @@ chmod +x parse-sms
    - if you prefer you can give multiple files as arguments
 ```bash
 ./parse-sms ./sms-example.txt ./sms-example2.txt ...
+```
+
+### Tests
+
+```bash
+yarn test
+```
+or
+```bash
+npm run test
 ```
