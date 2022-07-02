@@ -1,0 +1,5 @@
+version: '3'
+services:
+  parse-sms:
+    build: .
+    container_name: parse-sms
