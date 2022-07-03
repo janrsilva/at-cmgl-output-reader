@@ -25,7 +25,10 @@ OK
 ```bash
 docker run janrsilva/parse-sms
 ```
-
+or
+```bash
+export FILE=your-file-sms.txt && docker run -v $(pwd)/$FILE:/app/sms-example.txt -t janrsilva/parse-sms
+```
 
 ## (without docker)
 ### Requirements
